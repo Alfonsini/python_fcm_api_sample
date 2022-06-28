@@ -20,6 +20,12 @@ In order to run this project, install below package:
 pip install firebase-admin
 ```
 
+[*Firebase Admin SDK private key*](https://firebase.google.com/docs/admin/setup)
+
+Go to your Firebase console for your project, project settings, Service accounts and generate a new Firebase Admin SDK private key. 
+Download a json file and place it in project directory.
+
+
 ## Authors
 
 * **Alfonso Ramirez** - *Initial work* - [Alfonsini](https://github.com/alfonsini)

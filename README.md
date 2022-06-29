@@ -25,6 +25,9 @@ pip install firebase-admin
 Go to your Firebase console for your project, project settings, Service accounts and generate a new Firebase Admin SDK private key. 
 Download a json file and place it in project directory.
 
+## References
+
+* **cordova-plugin-firebasex-test** - [dpa99c](https://github.com/dpa99c/cordova-plugin-firebasex-test/tree/master/messages)
 
 ## Authors
 
@@ -33,3 +36,4 @@ Download a json file and place it in project directory.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+

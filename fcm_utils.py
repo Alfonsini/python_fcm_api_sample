@@ -1,4 +1,5 @@
 from typing import Any
+from unicodedata import category
 from firebase_admin import messaging, credentials
 import firebase_admin
 
@@ -18,7 +19,7 @@ class FcmUtils:
     #   'time': '2:45',
     # },
     # example
-    def send_to_token(self, registration_token, title, body, image, click_action, priority, sound_filename, data=None) -> Any:
+    def send_to_token(self, registration_token, title, body, image, click_action, priority, sound_filename, category, data=None) -> Any:
         message = messaging.Message(
             notification=messaging.Notification(
                 title=title,
@@ -33,9 +34,19 @@ class FcmUtils:
                     click_action=click_action,
                     sound=sound_filename,
                 ),
-                data=data,
                 priority=priority
-            ),             
+            ),
+            data=data,
+            apns=messaging.APNSConfig(
+                payload=messaging.APNSPayload(
+                    aps=messaging.Aps(
+                        category=category,
+                        badge=1,
+                        content_available=1,
+                        sound='default' #iOS sound
+                    )
+                )
+            ),
             token=registration_token,
         )
         response = messaging.send(message)

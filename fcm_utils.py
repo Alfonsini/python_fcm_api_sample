@@ -38,14 +38,22 @@ class FcmUtils:
             ),
             data=data,
             apns=messaging.APNSConfig(
+                headers={ 'mutable-content': '1'},
+                fcm_options=messaging.APNSFCMOptions(
+                    image=image
+                ),
                 payload=messaging.APNSPayload(
                     aps=messaging.Aps(
                         category=category,
                         badge=1,
                         content_available=1,
-                        sound='default' #iOS sound
+                        sound='default', #iOS sound
+                        mutable_content=1                        
                     )
                 )
+            ),
+            webpush=messaging.WebpushConfig(
+                headers={ 'image': image},
             ),
             token=registration_token,
         )
